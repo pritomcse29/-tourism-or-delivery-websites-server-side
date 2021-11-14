@@ -34,22 +34,7 @@ async function run() {
         });
 
 
-        app.get('/users', async (req, res) => {
-            const cursor = usersCollection.find({});
-            const users = await cursor.toArray();
-            res.send(users);
-        }
-        );
 
-        app.get('/users/:id', async (req, res) => {
-            const id = req.params.id
-                ;
-            const query = { _id: ObjectId(id) };
-
-            const user = await usersCollection.findOne(query);
-            // console.log('load user with id:', id);
-            res.send(user);
-        })
 
         //Use POST 
         app.post('/foods/bykeys', async (req, res) => {
@@ -70,7 +55,22 @@ async function run() {
 
 
 
+        app.get('/users', async (req, res) => {
+            const cursor = usersCollection.find({});
+            const users = await cursor.toArray();
+            res.send(users);
+        }
+        );
 
+        app.get('/users/:id', async (req, res) => {
+            const id = req.params.id
+                ;
+            const query = { _id: ObjectId(id) };
+
+            const user = await usersCollection.findOne(query);
+            // console.log('load user with id:', id);
+            res.send(user);
+        });
 
         // POST API
 
