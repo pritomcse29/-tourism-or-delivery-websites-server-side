@@ -23,6 +23,8 @@ async function run() {
         const foodsCollection = database.collection('foods');
         const orderCollection = database.collection('orders');
         const usersCollection = database.collection("users");
+
+        // console.log("all connected");
         //GET Foods API
 
         app.get('/foods', async (req, res) => {
@@ -124,4 +126,4 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
     console.log('Server running at port ', port);
-})
+});
